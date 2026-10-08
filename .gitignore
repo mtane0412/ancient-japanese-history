@@ -3,3 +3,9 @@
 .obsidian/cache
 .trash/
 .claude/worktrees/
+
+# raw/ の原資料は著作権保護のためローカルにのみ保存し、公開リポジトリにはコミットしない（CLAUDE.md 2.1）
+raw/*
+!raw/assets/
+raw/assets/*
+!raw/assets/.gitkeep
