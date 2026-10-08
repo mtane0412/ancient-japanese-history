@@ -33,3 +33,15 @@ type: log
   - index の木簡要約の限定の欠落
   - 資料要約13件の `published` の欠落
   - 本文で引用しているのに frontmatter の `sources` に無い資料の追加（4ページ）
+
+## [2026-10-08] schema | 資料メモ用ディレクトリ notes/ の分離
+
+- ユーザーとの合意に基づき、Claude が Web 調査で作成した資料メモの置き場を `raw/` から `notes/` に分離した。`raw/` にはユーザーが置いた原資料だけを置き、LLM による加工物と区別する。
+- 初回調査で作成した資料メモ73件を `raw/<時代名>/` から `notes/<時代名>/` に移動した（内容は変更していない）。
+- 資料要約ページ73件の frontmatter の `raw_path` を `note_path` に書き換えた。
+- `CLAUDE.md` を改訂した。
+  - 2章に `notes/` を追加し、「2.2 notes/ の扱い」を新設した。
+  - 3.3 に `note_path` を追加し、`published` が不明な場合の書き方を定めた。
+  - 5.4 Research（Web 調査による資料収集）のワークフローを新設した。
+- `README.md` の構成表と使い方を更新した。
+- 本リポジトリが公開リポジトリであることから、`raw/` の原資料は Git にコミットせずローカルにのみ保存する方針とした。`.gitignore` で `raw/` の中身を除外し（`raw/assets/.gitkeep` のみ残す）、`CLAUDE.md` 2.1 と `README.md` に明記した。
