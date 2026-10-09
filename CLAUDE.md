@@ -185,6 +185,7 @@ note_path: notes/弥生時代/xxx.md  # 対応する notes/ の資料メモ（�
 2. 1資料につき1件の資料メモを `notes/<時代名>/` に作成する（2.2 を参照）。
 3. 以降は 5.1 の手順3〜8に従って Wiki に反映する。資料要約ページには `note_path` を記載する。
 4. 時代などの単位でサブエージェントを並行させる場合は、各サブエージェントを別々の git worktree・作業ブランチで作業させる。時代の境目にある項目は担当を事前に割り振り、`index.md`・`log.md`・`overview.md` は統合時にメインが更新する。
+5. worktree を使った作業では、統合の後に必ず片付けを行う。各 worktree に未コミットの変更と無視ファイル（`git status --short --ignored`）が無く、作業ブランチが統合先にマージ済み（`git merge-base --is-ancestor`）であることを確認してから、`git worktree remove` で worktree を、`git branch -d` で作業ブランチを削除し、`git worktree prune` を実行する。確認で問題が見つかった場合は削除せず、ユーザーに報告する。
 
 ---
 
